@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Carosello News</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <!--Controllo che ci sia la cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Slider</title>
+</head>
+<body>
+    <!--Rinomino in root per avere il riferimento Vue-->
+    <div id="root">
+
+        <div class="container" >
+            <div class="slider-wrapper" tabindex="0">
+
+                <div class="item">
+                    <!--Sostituisco i valori con gli oggetti in data-->
+                    <!--Array-indice-oggetto-->
+                    <img :src="slides[currentActiveElement].image" alt="slides[currentActiveElement].title" />
+                    <div class="text">
+                        <h3>{{slides[currentActiveElement].title}}</h3>
+                        <p>
+                            {{slides[currentActiveElement].text}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="thumbs">
+                    <!--Imposto l'azione del click(indietro)-->
+                    <div @click="showPrevElement" class="prev"></div>
+                    <!--Imposto l'azione del click(avanti)-->
+                    <div @click="showNextElement" class="next"></div>
+                    <!--Imposto l'attivazione della classe active-->
+                    
+                    <div  class="thumb active" :class=" { 'active': 0 === currentActiveElement } ">
+                        <!--Sostituisco i valori con gli oggetti in data-->
+                        <img :src="slides[0].image" alt="Svezia"/>
+                    </div>
+                    <!--Imposto l'attivazione della classe active-->
+                   
+                    <div class="thumb" :class=" { 'active': 1 === currentActiveElement } ">
+                         <!--Sostituisco i valori con gli oggetti in data-->
+                        <img :src="slides[1].image" alt="Svizzera" />
+                    </div>
+                    <!--Imposto l'attivazione della classe active-->
+                    
+                    <div  class="thumb" :class=" { 'active': 2 === currentActiveElement } ">
+                         <!--Sostituisco i valori con gli oggetti in data-->
+                        <img :src="slides[2].image" alt="Gran Bretagna" />
+                    </div>
+                    <!--Imposto l'attivazione della classe active-->
+                    
+                    <div  class="thumb" :class=" { 'active': 3 === currentActiveElement } ">
+                         <!--Sostituisco i valori con gli oggetti in data-->
+                        <img :src="slides[3].image" alt="Germania" />
+                    </div>
+                    <!--Imposto l'attivazione della classe active-->
+                   
+                    <div  class="thumb" :class=" { 'active': 4 === currentActiveElement } ">
+                         <!--Sostituisco i valori con gli oggetti in data-->
+                        <img :src="slides[4].image" alt="Paradise" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
